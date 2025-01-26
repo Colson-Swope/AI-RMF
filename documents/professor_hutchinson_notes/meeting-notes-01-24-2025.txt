@@ -1,0 +1,48 @@
+--
+
+Consider using the llama language model with RAG (Retrieval Augmented Generation) 
+	- RAG provides detailed responses to user queries 
+	- Great for question-answering, summarization, and conversational agents
+
+Retrieve: In this initial phase, relevant documents are retrieved from a corpus based on the user's query
+Aggregate: Once documents are retrieved, the next step is to aggregate the information contained within them
+Generate: Finally, the aggregated information is used to generate a coherent response or answer
+
+There is no need to fine-tune with RAG 
+
+More info on RAG: 
+
+https://www.geeksforgeeks.org/rag-using-llama3/
+
+--
+
+How would RAG work for what we want? 
+
+If we want to use the GitHub repo with the CVE information, we could: 
+
+1) Pull the repo down maybe once per day (or every 12 hours) 
+2) Process each chunk of information into a memory file (resarch this more, should contain "keys" and "vectors") 
+3) Loop through list and compare it with the update information sent from client computer 
+
+--
+
+RAG Chain of Thought Reasoning:
+
+Back & Forth dialogue 
+Used to verify it isn't making stuff up 
+
+-- 
+
+What is the 80 / 20 split? 
+
+Used for testing to see how good your model is 
+
+Tests the model on "new" data 
+
+For example, a student taking a final exam after learning the related concepts in class 
+
+Data can be split into two sets:
+	Dev set: model decisions 
+	Test set: data the model has never seen before, thrown into the "wild" 
+
+-- 
