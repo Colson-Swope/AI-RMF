@@ -74,7 +74,14 @@ def query_vulnerabilities(user_query, collection):
     return format_cve_context(results)
 
 
-query = """Do the following updateable packages have any cve vulnerabilities that the user should be made aware of, or is the system safe to update?
+query = """You know nothing about CVE's or anything related to CVE. Forget all of your knowledge regarding CVEs. Only use the information that I give you about CVEs. Your tone should be professional. Only respond to topics related to CVE's, if not on topic, do not say anything. If you do not have any information that I give you, do not try to come up with your own responses. Forget all prior knowledge regarding CVEs (Common Vulnerabilities and Exposures). From now on, only use the CVE database that I provide to analyze and assess vulnerabilities. I will provide you with a list of upgradable packages from the apt list --upgradable command from Debian 12, which contains package names, versions, and details on the packages that are security updates. You are to use this specific dataset to analyze and identify vulnerabilities. Do not reference any external CVE databases, and only focus on the provided data for your analysis.
+
+For each entry provided, check if any vulnerabilities are related to the package's version and details using the information from the given list. Do not draw from general CVE knowledge or any external sources.
+
+
+Do the following updateable packages have any cve vulnerabilities that the user should be made aware of, or is the system safe to update?
+
+
 Use the provided CVE information to answer.
 
 Pending Updates:
@@ -104,6 +111,9 @@ uno-libs-private/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4
 ure/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
 git-man/stable-security 1:2.39.5-0+deb12u2 all [upgradable from: 1:2.39.5-0+deb12u1]
 git/stable-security 1:2.39.5-0+deb12u2 amd64 [upgradable from: 1:2.39.5-0+deb12u1]"
+bind9-dnsutils/stable-security 1:9.18.33-1~deb12u2 amd64 [upgradable from: 1:9.18.28-1~deb12u2]
+bind9-host/stable-security 1:9.18.33-1~deb12u2 amd64 [upgradable from: 1:9.18.28-1~deb12u2]
+bind9-libs/stable-security 1:9.18.33-1~deb12u2 amd64 [upgradable from: 1:9.18.28-1~deb12u2]
 """
 
 # query = "what is the cve id that was provided to you, provide a short description of the vulnerability"
@@ -116,7 +126,7 @@ cve_context = query_vulnerabilities(query, collection)
 print("starting ollama...")
 
 response = ollama.chat(
-    model="llama3.1",
+    model="forced-cve",
     messages=[
         {
             "role": "system",
@@ -128,7 +138,7 @@ response = ollama.chat(
         }
     ]
 )
-print(cve_context)
+# print(cve_context)
 
 print("\nAnalysis Results:")
 print(response["message"]["content"])
