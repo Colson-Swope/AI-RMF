@@ -74,8 +74,8 @@ def query_vulnerabilities(user_query, collection):
     return format_cve_context(results)
 
 
-query = """You know nothing about CVE's or anything related to CVE. Forget all of your knowledge regarding CVEs. Only use the information that I give you about CVEs. Your tone should be professional. Only respond to topics related to CVE's, if not on topic, do not say anything. If you do not have any information that I give you, do not try to come up with your own responses. Forget all prior knowledge regarding CVEs (Common Vulnerabilities and Exposures). From now on, only use the CVE database that I provide to analyze and assess vulnerabilities. I will provide you with a list of upgradable packages from the apt list --upgradable command from Debian 12, which contains package names, versions, and details on the packages that are security updates. You are to use this specific dataset to analyze and identify vulnerabilities. Do not reference any external CVE databases, and only focus on the provided data for your analysis.
 
+query = """ 
 For each entry provided, check if any vulnerabilities are related to the package's version and details using the information from the given list. Do not draw from general CVE knowledge or any external sources.
 
 
