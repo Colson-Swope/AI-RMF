@@ -1,7 +1,5 @@
-NIST Special Publication
+NIST Special Publication.
 NIST SP 800-40r4
-Guide to Enterprise Patch Management Planning:
-Preventive Maintenance for Technology
 
 1.1 Purpose and Scope
 The purpose of this publication is to help organizations improve their enterprise patch management planning so that they can strengthen their management of risk. This publication strives to illustrate that enterprise patch management is preventive maintenance for an organization’s technology. Adopting this mindset and following the recommendations and suggestions in this document should help organizations in the following ways:

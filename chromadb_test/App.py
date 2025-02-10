@@ -11,10 +11,10 @@ chroma_client = chromadb.PersistentClient(path="./cvedatabase")
 collection = chroma_client.get_or_create_collection(name="cve_collection")
 
 # limits the number of cves to put in the database, -1 for no limit
-db_limit = 1000
+db_limit = 10000
 
 # limits the number of cves chroma will match to the query
-search_limit = 1000
+search_limit = 10000
 
 cve_dir = "./CVEdata/cvelistnosub/cves/"
 
@@ -73,47 +73,71 @@ def query_vulnerabilities(user_query, collection):
     
     return format_cve_context(results)
 
-
-
 query = """ 
-For each entry provided, check if any vulnerabilities are related to the package's version and details using the information from the given list. Do not draw from general CVE knowledge or any external sources.
+Follow these instructions EXACTLY 
+For each entry provided,
 
+Do the following updateable packages have any cve vulnerabilities that the user should be made aware of?
 
-Do the following updateable packages have any cve vulnerabilities that the user should be made aware of, or is the system safe to update?
+Write it in this EXACT format, nothing else, exactly like this: 
 
+Numbered list) 
+Name of Package: *name of package that has pending update
+Current Version: *current version of installed package
+Update Version: *version of pending package 
+List of Known Vulnerabilities: *vulnerabilities according to the CVE database I gave you. if there is no vulnerability, write N/A
 
-Use the provided CVE information to answer.
+apt list --upgradable output. please analyze each entry:
 
-Pending Updates:
-Listing...
 fonts-opensymbol/stable-security 4:102.12+LibO7.4.7-1+deb12u6 all [upgradable from: 4:102.12+LibO7.4.7-1+deb12u5]
+AND
 libreoffice-base-core/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-calc/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-common/stable-security 4:7.4.7-1+deb12u6 all [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-core/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-draw/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-gnome/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-gtk3/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-help-common/stable-security 4:7.4.7-1+deb12u6 all [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-help-en-us/stable-security 4:7.4.7-1+deb12u6 all [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-impress/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-math/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-style-colibre/stable-security 4:7.4.7-1+deb12u6 all [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-style-elementary/stable-security 4:7.4.7-1+deb12u6 all [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libreoffice-writer/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libuno-cppu3/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libuno-cppuhelpergcc3-3/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libuno-purpenvhelpergcc3-3/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libuno-sal3/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 libuno-salhelpergcc3-3/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 python3-uno/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 uno-libs-private/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 ure/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
+AND
 git-man/stable-security 1:2.39.5-0+deb12u2 all [upgradable from: 1:2.39.5-0+deb12u1]
-git/stable-security 1:2.39.5-0+deb12u2 amd64 [upgradable from: 1:2.39.5-0+deb12u1]"
-bind9-dnsutils/stable-security 1:9.18.33-1~deb12u2 amd64 [upgradable from: 1:9.18.28-1~deb12u2]
-bind9-host/stable-security 1:9.18.33-1~deb12u2 amd64 [upgradable from: 1:9.18.28-1~deb12u2]
-bind9-libs/stable-security 1:9.18.33-1~deb12u2 amd64 [upgradable from: 1:9.18.28-1~deb12u2]
+AND
+git/stable-security 1:2.39.5-0+deb12u2 amd64 [upgradable from: 1:2.39.5-0+deb12u1]
 """
 
 # query = "what is the cve id that was provided to you, provide a short description of the vulnerability"
