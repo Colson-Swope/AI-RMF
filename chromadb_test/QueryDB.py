@@ -62,8 +62,12 @@ git-man/stable-security 1:2.39.5-0+deb12u2 all [upgradable from: 1:2.39.5-0+deb1
 git/stable-security 1:2.39.5-0+deb12u2 amd64 [upgradable from: 1:2.39.5-0+deb12u1]
 """
 
+relevant_cves = query_vulnerabilities(query, collection)
+# print("relevant cves:\n" + relevant_cves)
+
+
 def get_cve_context():
-    return query_vulnerabilities(query, collection)
+    return relevant_cves
 
 def get_db_query():
     return query
