@@ -19,7 +19,7 @@ def process_cve_files(folder):
     count = 0
     for filename in os.listdir(cve_dir):
         file = os.path.join(cve_dir, filename)
-        if os.path.isfile(file):
+        if os.path.isfile(file) and filename.startswith("CVE"):
             count += 1
             fp = open(file, 'r')
             cve = json.load(fp)
