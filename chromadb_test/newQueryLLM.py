@@ -1,7 +1,6 @@
 import json
 import ollama
 import newQueryDB
-import UserData
 
 # number of times to generate a response
 num_responses = 10

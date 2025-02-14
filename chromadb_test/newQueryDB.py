@@ -1,4 +1,3 @@
-import json
 import chromadb
 import UserData
 
