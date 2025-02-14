@@ -1,6 +1,5 @@
 import json
 import chromadb
-import UserData
 
 # number of cves to return
 limit = 10
