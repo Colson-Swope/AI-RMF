@@ -3,27 +3,37 @@ import ollama
 import newQueryDB
 import UserData
 
+# number of times to generate a response
+num_responses = 10
 
 cve_context = newQueryDB.get_cve_context()
 user_data = UserData.get_user_data()
+
 query = f"""
-The following is a list of upgradeable packages on a system:
-{user_data}
-Using the following list of CVEs, are there any vulnerabilities in any of the upgradeable packages? If there are, cite which CVE the vulnerability arises from.
-List of possibly related CVEs:
+You are a security analyst checking system vulnerabilities.
+
+Considering the following CVEs:
 {cve_context}
+
+The user's system has the following upgradeable packages:
+{user_data}
+
+For each upgradeable package in the user's system, find the CVEs that are related. If no CVE mentions a package, do not include it in the results. When listing the CVEs, list the CVE and the upgradeable package from the user's machine that the CVE might threaten.
 """
 
-# print(query)
+# generate num_responses responses
+for i in range(num_responses):
+    response = ollama.chat(
+        model = "forced-cve",
+        messages = [
+            {
+                "role": "user",
+                "content": query
+            }
+        ]
+    )
+    print("--------------- RESPONSE " + str(i) + " ------------------------------------------")
+    print(response["message"]["content"])
 
-response = ollama.chat(
-    model = "forced-cve",
-    messages = [
-        {
-            "role": "user",
-            "content": query
-        }
-    ]
-)
 
-print(response["message"]["content"])
+#print(response["message"]["content"])

@@ -3,7 +3,7 @@ import json
 import chromadb
 
 # The amount of CVEs to put in the DB, -1 for no limit
-limit = 100
+limit = 10000
 
 cve_dir = "./CVEdata/cvelistnosub/cves/"
 
@@ -17,15 +17,10 @@ def process_cve_file(filename):
         f = open(cve_dir + filename)
         cve_data = json.load(f)
 
-        #id = cve_data['cveMetadata']['cveId']
-        #metadata = cve_data['cveMetadata']
-        #affected_product = cve_data['containers']['cna']['affected'][0]['product']
-        #description = cve_data['containers']['cna']['descriptions'][0]['value']
-
-
+        # Extract ID
         id = cve_data.get('cveMetadata', {}).get('cveId', 'Unknown ID')
 
-        # Extract Description (first available description)
+        # Extract Description
         description = (
             cve_data.get('containers', {})
                     .get('cna', {})
@@ -33,13 +28,14 @@ def process_cve_file(filename):
                     .get('value', 'No Description Available')
         )
 
-        # Extract Affected Products (list of products)
+        # Extract Affected Products
         affected_products = [
             entry.get('product', 'Unknown Product')
             for entry in cve_data.get('containers', {}).get('cna', {}).get('affected', [])
         ]
 
 
+        # Construct the CVE
         cve = {
             "id": id,
             "metadata": {
@@ -48,9 +44,11 @@ def process_cve_file(filename):
             "document": description
         }
 
+        # Add the CVE to the list of CVEs
         resources.append(cve)
 
 count = 0
+# Extract all CVEs from the cve directory
 for filename in os.listdir(cve_dir):
     print("adding file " + str(count))
     process_cve_file(filename)
@@ -63,6 +61,7 @@ for filename in os.listdir(cve_dir):
 libre_cve_name = "CVE-2023-2255.json"
 process_cve_file(libre_cve_name)
 
+# Add all relevant CVEs to the database
 collection.add(
     ids=[entry['id'] for entry in resources],
     metadatas=[entry['metadata'] for entry in resources],
