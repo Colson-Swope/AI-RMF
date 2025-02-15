@@ -49,7 +49,7 @@ def ask_ollama(query):
     
     return response['message']['content']
 
-load_json_to_chromadb("/home/colsons/repos/AI-RMF/chromadb_test/CVEdata/cvelistnosub/cves/")
+load_json_to_chromadb("/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/CVEdata/cvelistnosub/cves/")
 
 # Example query
 # query = "Give me info on CVE-1999-0068"

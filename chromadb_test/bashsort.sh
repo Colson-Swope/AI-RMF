@@ -6,11 +6,11 @@
 # Date: 02/05/2024 
 
 # pull updated CVE information from cvelistV5
-(cd /home/colsons/repos/cvelistV5/; git pull)
+(cd /home/swopec2/Documents/GitHub/cvelistV5/; git pull)
 
 # define source and destination dir. to move CVE info to 
-SOURCE_DIR="/home/colsons/repos/cvelistV5"
-DEST_DIR="/home/colsons/repos/AI-RMF/chromadb_test/CVEdata/cvelistnosub/cves/"
+SOURCE_DIR="/home/swopec2/Documents/GitHub/cvelistV5"
+DEST_DIR="/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/CVEdata/cvelistnosub/cves/"
 
 # use rsync to move all changed files to destination directory used by App.py
 find $SOURCE_DIR -name \*.json | rsync -av --files-from - --no-relative / $DEST_DIR
