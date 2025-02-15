@@ -1,20 +1,20 @@
 import json
 import ollama
 import newQueryDB
-import UserData
+import UserUpdateData
 
 # number of times to generate a response
 num_responses = 1
 
 cve_context = newQueryDB.get_cve_context()
-user_data = UserData.get_user_data()
+user_update_data = UserUpdateData.get_user_update_data()
 
 query = f"""
 Considering the following CVEs:
 {cve_context}
 
 User's system has upgradeable packages:
-{user_data}
+{user_update_data}
 
 For each upgradeable package in the user's system, ONLY find CVEs related to package version. 
 
@@ -43,7 +43,8 @@ for i in range(num_responses):
         ]
     )
     print("--------------- RESPONSE " + str(i) + " ------------------------------------------") 
-    print(response["message"]["content"])  
 
+model_response = response["message"]["content"]
 
-#print(response["message"]["content"])
+print(model_response)
+

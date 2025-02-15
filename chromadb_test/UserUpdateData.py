@@ -1,4 +1,4 @@
-user_data = """fonts-opensymbol/stable-security 4:102.12+LibO7.4.7-1+deb12u6 all [upgradable from: 4:102.12+LibO7.4.7-1+deb12u5]
+user_update_data = """fonts-opensymbol/stable-security 4:102.12+LibO7.4.7-1+deb12u6 all [upgradable from: 4:102.12+LibO7.4.7-1+deb12u5]
 libreoffice-base-core/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
 libreoffice-calc/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
 libreoffice-common/stable-security 4:7.4.7-1+deb12u6 all [upgradable from: 4:7.4.7-1+deb12u5]
@@ -25,5 +25,5 @@ git-man/stable-security 1:2.39.5-0+deb12u2 all [upgradable from: 1:2.39.5-0+deb1
 git/stable-security 1:2.39.5-0+deb12u2 amd64 [upgradable from: 1:2.39.5-0+deb12u1]
 """
 
-def get_user_data():
-    return user_data
+def get_user_update_data():
+    return user_update_data

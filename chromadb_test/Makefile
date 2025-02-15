@@ -1,5 +1,5 @@
 cleandb:
-	rm -r -d cvedatabase/*
+	rm -r -d cve_information/cvedatabase/*
 
 createdb:
 	python3 newCreateDB.py

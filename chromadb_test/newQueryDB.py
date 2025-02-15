@@ -1,10 +1,10 @@
 import chromadb
-import UserData
+import UserUpdateData
 
 # number of cves to return
 limit = 10
 
-chroma_client = chromadb.PersistentClient(path="./cvedatabase")
+chroma_client = chromadb.PersistentClient(path="./cve_information/cvedatabase")
 collection = chroma_client.get_collection(name = "cve_collection")
 
 
@@ -31,7 +31,7 @@ def format_cves(cves):
     return formatted_cve_context
 
 
-relevant_cves = query_db(UserData.get_user_data(), limit)
+relevant_cves = query_db(UserUpdateData.get_user_update_data(), limit)
 formatted_cves = format_cves(relevant_cves)
 
 

@@ -5,9 +5,9 @@ import chromadb
 # The amount of CVEs to put in the DB, -1 for no limit
 limit = 10000
 
-cve_dir = "./CVEdata/cvelistnosub/cves/"
+cve_dir = "./cve_information/CVEdata/cvelistnosub/cves/"
 
-client = chromadb.PersistentClient(path="./cvedatabase/")
+client = chromadb.PersistentClient(path="./cve_information/cvedatabase/")
 collection = client.get_or_create_collection("cve_collection")
 
 resources = []
