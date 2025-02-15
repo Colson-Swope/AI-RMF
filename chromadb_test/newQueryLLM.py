@@ -4,21 +4,31 @@ import newQueryDB
 import UserData
 
 # number of times to generate a response
-num_responses = 10
+num_responses = 1
 
 cve_context = newQueryDB.get_cve_context()
 user_data = UserData.get_user_data()
 
 query = f"""
-You are a security analyst checking system vulnerabilities.
-
 Considering the following CVEs:
 {cve_context}
 
-The user's system has the following upgradeable packages:
+User's system has upgradeable packages:
 {user_data}
 
-For each upgradeable package in the user's system, find the CVEs that are related. If no CVE mentions a package, do not include it in the results. When listing the CVEs, list the CVE and the upgradeable package from the user's machine that the CVE might threaten.
+For each upgradeable package in the user's system, ONLY find CVEs related to package version. 
+
+DO NOT MENTION ANY PACKAGE THAT DOES NOT HAVE AN AFFILIATED CVE
+
+Write EXACT format, nothing else, exactly like this: 
+
+    Numbered list) 
+    Name of package: *name of package with pending update  
+    Current version: *current version of installed package
+    Update version: *version of pending update
+    Affiliated CVES: *list the CVES 
+
+
 """
 
 # generate num_responses responses
@@ -32,8 +42,8 @@ for i in range(num_responses):
             }
         ]
     )
-    print("--------------- RESPONSE " + str(i) + " ------------------------------------------")
-    print(response["message"]["content"])
+    print("--------------- RESPONSE " + str(i) + " ------------------------------------------") 
+    print(response["message"]["content"])  
 
 
 #print(response["message"]["content"])
