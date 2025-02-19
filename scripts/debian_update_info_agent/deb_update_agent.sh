@@ -3,10 +3,6 @@
 # Date: 1/14/2025
 # Description: Collects patch information from Debian based systems and sends to central server
 
-# path to where information is stored 
-SYSTEM_CONFIG_FILE="debian_sys_config.txt"
-SYSTEM_PATCH_REPORT_AI_FILE="debian_patch_report_ai.txt"
-
 # get system info 
 DATE=$(date +"%m-%d-%Y")
 TIME=$(date +"%H:%M:%S")
@@ -14,6 +10,15 @@ OS_NAME=$(hostname)
 OS_VERSION=$(uname -v)
 COMPUTER_NAME=$(hostname)
 IP_ADDR=$(hostname -I | awk '{print $1}')
+USER_NAME=$(whoami)
+
+# path to where information is stored 
+mkdir ${COMPUTER_NAME}
+touch ${COMPUTER_NAME}/debian_sys_config.txt
+touch ${COMPUTER_NAME}/debian_patch_report_ai.txt
+
+SYSTEM_CONFIG_FILE="/home/${USER_NAME}/${COMPUTER_NAME}/debian_sys_config.txt"
+SYSTEM_PATCH_REPORT_AI_FILE="/home/${USER_NAME}/${COMPUTER_NAME}/debian_patch_report_ai.txt"
 
 # write system info to file 
 echo -e "Date: $DATE" > $SYSTEM_CONFIG_FILE
@@ -27,3 +32,11 @@ echo -e "IP Address: $IP_ADDR" >> $SYSTEM_CONFIG_FILE
 sudo apt update
 UPDATES=$(apt list --upgradable)
 echo -e "Pending Updates:\n$UPDATES\n" > $SYSTEM_PATCH_REPORT_AI_FILE
+
+# copy info folder to target server
+INFO_FOLDER="/home/${USER_NAME}/${COMPUTER_NAME}"
+
+scp -P 922 -r $INFO_FOLDER swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/machine_transfer/
+
+
+
