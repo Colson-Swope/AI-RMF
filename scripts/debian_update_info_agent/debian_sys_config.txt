@@ -1,6 +1,0 @@
-Date: 01-22-2025
-Time: 08:15:53
-OS Name: Swope-PC01
-OS Version: #1 SMP Tue Nov 5 00:21:55 UTC 2024
-Computer Name: Swope-PC01
-IP Address: 172.17.78.63
