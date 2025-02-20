@@ -1,4 +1,4 @@
-with open("./machine_transfer/RMF-Client01/debian_patch_report.txt") as file: 
+with open("./machine_transfer/RMF-Client01/debian_patch_report_ai.txt") as file: 
     content = file.read()
 
 user_update_data = content
