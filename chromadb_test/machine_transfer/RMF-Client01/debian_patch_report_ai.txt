@@ -1,0 +1,16 @@
+Pending Updates:
+Listing...
+gir1.2-javascriptcoregtk-4.0/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+gir1.2-javascriptcoregtk-4.1/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+gir1.2-webkit2-4.0/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+gir1.2-webkit2-4.1/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+libgnutls30/stable-security 3.7.9-2+deb12u4 amd64 [upgradable from: 3.7.9-2+deb12u3]
+libjavascriptcoregtk-4.0-18/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+libjavascriptcoregtk-4.1-0/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+libjavascriptcoregtk-6.0-1/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+libtasn1-6/stable-security 4.19.0-2+deb12u1 amd64 [upgradable from: 4.19.0-2]
+libwebkit2gtk-4.0-37/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+libwebkit2gtk-4.1-0/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+libwebkitgtk-6.0-4/stable-security 2.46.6-1~deb12u1 amd64 [upgradable from: 2.46.5-1~deb12u1]
+openssh-client/stable-security 1:9.2p1-2+deb12u5 amd64 [upgradable from: 1:9.2p1-2+deb12u4]
+
