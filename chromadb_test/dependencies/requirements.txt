@@ -1,3 +1,4 @@
 json
 ollama
 chromadb
+fpdf

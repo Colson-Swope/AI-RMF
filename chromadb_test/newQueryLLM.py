@@ -2,12 +2,15 @@ import json
 import ollama
 import newQueryDB
 import UserUpdateData
+import os
+import text_to_pdf
+
 
 # number of times to generate a response
 num_responses = 1
 
 cve_context = newQueryDB.get_cve_context()
-user_update_data = UserUpdateData.get_user_update_data()
+user_update_data = UserUpdateData.get_user_update_data() 
 
 query = f"""
 Considering the following CVEs:
@@ -47,4 +50,18 @@ for i in range(num_responses):
 model_response = response["message"]["content"]
 
 print(model_response)
+
+# change to dynamic path when GUI is finished
+file_folder = './model_output/output_RMF-Client01'
+# replace with dynamic file path when GUI is done 
+input_file = os.path.join(file_folder, 'output.txt') 
+
+with open(input_file, 'w') as file:  
+    file.write(model_response)
+
+# replace with dynamic file path when GUI is finished 
+output_file = os.path.join(file_folder, 'pdf_output.pdf')
+
+text_to_pdf.create_pdf(input_file, output_file)
+
 

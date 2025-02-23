@@ -1,3 +1,4 @@
+# replace with dynamic file path when GUI is done
 with open("./machine_transfer/RMF-Client01/debian_sys_config.txt") as file:
     content = file.read()
 
