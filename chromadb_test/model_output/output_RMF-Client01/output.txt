@@ -1,63 +1,64 @@
 1. gir1.2-javascriptcoregtk-4.0/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 2. gir1.2-javascriptcoregtk-4.1/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 3. gir1.2-webkit2-4.0/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 4. gir1.2-webkit2-4.1/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 5. libgnutls30/stable-security 
-    Current version: 3.7.9-2+deb12u4
-    Update version: 
-        (No update available, but mentioned as being upgradable)
+    Current version: 3.7.9-2+deb12u3 
+    Update version: 3.7.9-2+deb12u4 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 6. libjavascriptcoregtk-4.0-18/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 7. libjavascriptcoregtk-4.1-0/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 8. libjavascriptcoregtk-6.0-1/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 9. libtasn1-6/stable-security 
-    Current version: 4.19.0-2+deb12u1
-    Update version: 4.19.0-2+deb12u1
-    Affiliated CVES: 
+    Current version: 4.19.0-2+deb12u1 
+    Update version: 4.19.0-2+deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 10. libwebkit2gtk-4.0-37/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 11. libwebkit2gtk-4.1-0/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 12. libwebkitgtk-6.0-4/stable-security 
-    Current version: 2.46.5-1~deb12u1
-    Update version: 2.46.6-1~deb12u1
-    Affiliated CVES: 
+    Current version: 2.46.5-1~deb12u1 
+    Update version: 2.46.6-1~deb12u1 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228 
 
 13. openssh-client/stable-security 
-    Current version: 1:9.2p1-2+deb12u4
-    Update version: 1:9.2p1-2+deb12u5
+    Current version: 1:9.2p1-2+deb12u4 
+    Update version: 1:9.2p1-2+deb12u5 
+    Affiliated CVES: CVE-2013-3667, CVE-2025-1228
