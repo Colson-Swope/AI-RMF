@@ -45,7 +45,7 @@ for i in range(num_responses):
             }
         ]
     )
-    print("--------------- RESPONSE " + str(i) + " ------------------------------------------") 
+    # print("--------------- RESPONSE " + str(i) + " ------------------------------------------") 
 
 model_response = response["message"]["content"]
 
