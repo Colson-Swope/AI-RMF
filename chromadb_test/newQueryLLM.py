@@ -4,7 +4,7 @@ import newQueryDB
 import UserUpdateData
 import os
 import text_to_pdf
-
+import text_to_docx
 
 # number of times to generate a response
 num_responses = 1
@@ -60,8 +60,9 @@ with open(input_file, 'w') as file:
     file.write(model_response)
 
 # replace with dynamic file path when GUI is finished 
-output_file = os.path.join(file_folder, 'pdf_output.pdf')
+pdf_output_file = os.path.join(file_folder, 'pdf_output.pdf')
+docx_output_file = os.path.join(file_folder, 'docx_output.pdf')
 
-text_to_pdf.create_pdf(input_file, output_file)
-
+text_to_pdf.create_pdf(input_file, pdf_output_file)
+text_to_docx.create_docx(input_file, docx_output_file)
 
