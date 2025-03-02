@@ -11,12 +11,27 @@ def create_pdf(input_file, output_file):
     title = "AI RMF Report"
     date = str(datetime.now())
 
-    pdf.set_font('Courier', 'B', 24)
-    pdf.cell(200, 10, txt=title, ln=1)
-    pdf.set_font('Courier', 'B', 14)
-    pdf.cell(200, 10, txt=date, ln=1)
-    pdf.set_font('Courier', 'B', 12)
+    # replace with dynamic values
+    time = "08:55:00"
+    computer_name = "RMF-Client01"
+    os_version = "Debian 6.1.128-1"
+    ip_address = "10.0.0.20"
 
+    pdf.set_font('Courier', 'B', 20)
+    pdf.cell(200, 10, txt=title, ln=1)
+    pdf.set_font('Courier', 'B', 10)
+    pdf.cell(200, 10, txt=date, ln=1)
+    pdf.set_font('Courier', 'B', 10)
+    pdf.cell(200, 10, txt=time, ln=1)
+    pdf.set_font('Courier', 'B', 10)
+    pdf.cell(200, 10, txt=computer_name, ln=1)
+    pdf.set_font('Courier', 'B', 10)
+    pdf.cell(200, 10, txt=os_version, ln=1)
+    pdf.set_font('Courier', 'B', 10)
+    pdf.cell(200, 10, txt=ip_address, ln=1)
+
+    pdf.set_font('Courier', 'B', 8)
+    
 
     with open(input_file) as f:
         for line in f:
