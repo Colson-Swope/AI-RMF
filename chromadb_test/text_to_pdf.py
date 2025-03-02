@@ -10,6 +10,8 @@ def create_pdf(input_file, output_file):
 
     title = "AI RMF Report"
     date = str(datetime.now())
+    
+    vuln_text = "Vulnerabilities:"
 
     # replace with dynamic values
     time = "Time: 08:55:00"
@@ -29,6 +31,8 @@ def create_pdf(input_file, output_file):
     pdf.cell(200, 10, txt=os_version, ln=1)
     pdf.set_font('Courier', 'B', 10)
     pdf.cell(200, 10, txt=ip_address, ln=1)
+
+    pdf.cell(200, 10, txt=vuln_text, ln=1)
 
     pdf.set_font('Courier', 'B', 8)
     
