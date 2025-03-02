@@ -2,3 +2,4 @@ json
 ollama
 chromadb
 fpdf
+python-docx

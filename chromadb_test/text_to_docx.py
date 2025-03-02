@@ -16,10 +16,10 @@ def create_docx(input_file, output_file):
 	
     doc.add_heading(title, 0)
     doc.add_heading(date, 1)
-    doc.add_heading(time, 2)
-    doc.add_heading(computer_name, 3)
-    doc.add_heading(os_version, 4)
-    doc.add_heading(ip_address, 5)
+    doc.add_heading(time, 1)
+    doc.add_heading(computer_name, 1)
+    doc.add_heading(os_version, 1)
+    doc.add_heading(ip_address, 1)
 
 
     with open(input_file) as f:
