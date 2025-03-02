@@ -10,9 +10,9 @@ def create_docx(input_file, output_file):
     date = str(datetime.now())
 
     time = "08:55:00"
-    computer_name = "RMF-Client01"
-    os_version = "Debian 6.1.128-1"
-    ip_address = "10.0.0.20"
+    computer_name = "Computer Name: RMF-Client01"
+    os_version = "OS Version: Debian 6.1.128-1"
+    ip_address = "IP Address: 10.0.0.20"
 	
     doc.add_heading(title, 0)
     doc.add_heading(date, 1)
