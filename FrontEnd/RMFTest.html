@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMFAI'D</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RMFAI'D</h1>
+        
+        <div id="step1">
+            <h3>Select a system:</h3>
+           <label><input type="radio" name="system" value="RMF-Client01"> RMF-Client01</label><br>
+            <label><input type="radio" name="system" value="RMF-Client02"> Future Computer Name</label><br>
+            <label><input type="radio" name="system" value="RMF-Client03"> Future Computer Name</label><br>
+            <label><input type="radio" name="system" value="RMF-Client04"> Future Computer Name</label><br>
+            <button onclick="nextStep(2)">Next</button>
+        </div>
+
+        <div id="step2" class="hidden">
+            <h3>What format would you like the report to be in?</h3>
+            <label><input type="radio" name="format" value="word"> Word Document</label><br>
+            <label><input type="radio" name="format" value="pdf"> PDF File</label><br>
+            <button onclick="nextStep(3)">Next</button>
+        </div>
+
+        <div id="step3" class="hidden">
+            <h3 id="lastReportHeader" class="hidden">Last report was generated on: <span id="lastReportDate"></span></h3>
+            <p>Would you like to generate a new report?</p>
+            <button onclick="generateReport(true)">Yes</button>
+            <button onclick="generateReport(false)">No</button>
+        </div>
+
+        <div id="step4" class="hidden">
+            <h3>Your report is ready!</h3>
+            <a id="downloadLink" href="#" download onclick="return downloadReport()"><button>Download Report</button></a>
+        </div>
+    </div>
+
+    <script>
+        let lastReportGenerated = null;
+
+        function nextStep(step) {
+            if (step === 2 && !document.querySelector('input[name="system"]:checked')) {
+                alert("Please select a system.");
+                return;
+            }
+            if (step === 3 && !document.querySelector('input[name="format"]:checked')) {
+                alert("Please select a format.");
+                return;
+            }
+            
+            document.getElementById("step" + (step - 1)).classList.add("hidden");
+            document.getElementById("step" + step).classList.remove("hidden");
+            
+            if (step === 3) {
+                let lastReportHeader = document.getElementById("lastReportHeader");
+                let lastReportDate = document.getElementById("lastReportDate");
+                if (lastReportGenerated) {
+                    lastReportDate.textContent = lastReportGenerated;
+                    lastReportHeader.classList.remove("hidden");
+                } else {
+                    lastReportHeader.classList.add("hidden");
+                }
+            }
+        }
+
+        function generateReport(shouldGenerate) {
+            document.getElementById("step3").classList.add("hidden");
+            if (shouldGenerate) {
+                lastReportGenerated = new Date().toLocaleDateString();
+                document.getElementById("step4").classList.remove("hidden");
+                updateDownloadLink();
+            } else {
+                alert("No new report generated.");
+                document.getElementById("step1").classList.remove("hidden");
+            }
+        }
+
+        function updateDownloadLink() {
+            let system = document.querySelector('input[name="system"]:checked').value;
+            let format = document.querySelector('input[name="format"]:checked').value;
+            let extension = format === "word" ? "docx" : "pdf";
+            let filename = `${system}_report.${extension}`;
+            let filepath = `./reports/${filename}`;
+            
+            let link = document.getElementById("downloadLink");
+            link.href = filepath;
+            link.download = filename;
+        }
+
+        function downloadReport() {
+            setTimeout(() => {
+                document.getElementById("step4").classList.add("hidden");
+                document.getElementById("step1").classList.remove("hidden");
+            }, 1000);
+            return true;
+        }
+    </script>
+</body>
+</html>
