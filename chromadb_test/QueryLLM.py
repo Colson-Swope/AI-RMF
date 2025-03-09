@@ -1,6 +1,6 @@
 import json
 import ollama
-import newQueryDB
+import chromadb_test.QueryDB as QueryDB
 import UserUpdateData
 import os
 import text_to_pdf
@@ -9,7 +9,7 @@ import text_to_docx
 # number of times to generate a response
 num_responses = 1
 
-cve_context = newQueryDB.get_cve_context()
+cve_context = QueryDB.get_cve_context()
 user_update_data = UserUpdateData.get_user_update_data() 
 
 query = f"""
