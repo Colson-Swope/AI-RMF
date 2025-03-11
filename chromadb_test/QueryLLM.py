@@ -1,7 +1,9 @@
 import json
 import ollama
-import chromadb_test.QueryDB as QueryDB
+import QueryDB
 import UserUpdateData
+# refresh DB 
+import CreateDB
 import os
 import text_to_pdf
 import text_to_docx

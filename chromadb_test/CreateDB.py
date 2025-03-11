@@ -58,8 +58,8 @@ for filename in os.listdir(cve_dir):
 
 
 # force one of the libre office cves to be added
-libre_cve_name = "CVE-2023-2255.json"
-process_cve_file(libre_cve_name)
+# libre_cve_name = "CVE-2023-2255.json"
+# process_cve_file(libre_cve_name)
 
 # Add all relevant CVEs to the database
 collection.add(

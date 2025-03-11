@@ -1,69 +1,81 @@
-1. gir1.2-javascriptcoregtk-4.0/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(1)
+Name of package: gir1.2-javascriptcoregtk-4.0/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-2. gir1.2-javascriptcoregtk-4.1/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(2)
+Name of package: gir1.2-javascriptcoregtk-4.1/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-3. gir1.2-webkit2-4.0/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(3)
+Name of package: gir1.2-webkit2-4.0/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-4. gir1.2-webkit2-4.1/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(4)
+Name of package: gir1.2-webkit2-4.1/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-5. libjavascriptcoregtk-4.0-18/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(5)
+Name of package: libjavascriptcoregtk-4.0-18/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-6. libjavascriptcoregtk-4.1-0/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(6)
+Name of package: libjavascriptcoregtk-4.1-0/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-7. libjavascriptcoregtk-6.0-1/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(7)
+Name of package: libjavascriptcoregtk-6.0-1/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-8. libtasn1-6/stable-security 
-  Current version: 4.19.0-2
-  Update version: 
-  (No affiliated CVE)
+(8)
+Name of package: libtasn1-6/stable-security 
+Current version: 4.19.0-2 
+Update version: 4.19.0-2+deb12u1 
+No affiliated CVEs found.
 
-9. libwebkit2gtk-4.0-37/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(9)
+Name of package: libwebkit2gtk-4.0-37/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-10. libwebkit2gtk-4.1-0/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(10)
+Name of package: libwebkit2gtk-4.1-0/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-11. libwebkitgtk-6.0-4/stable-security 
-  Current version: 2.46.5-1~deb12u1
-  Update version: 2.46.6-1~deb12u1
-  Affiliated CVES: 
-    CVE-2013-3667 
+(11)
+Name of package: libwebkitgtk-6.0-4/stable-security 
+Current version: 2.46.5-1~deb12u1 
+Update version: 2.46.6-1~deb12u1 
+Affiliated CVES:
+CVE-2013-3667
 
-12. openssh-client/stable-security 
-  Current version: 1:9.2p1-2+deb12u4
-  Update version: 1:9.2p1-2+deb12u5
-  (No affiliated CVE)
+(12)
+Name of package: openssh-client/stable-security 
+Current version: 9.2p1-2+deb12u4 
+Update version: 1:9.2p1-2+deb12u5 
+No affiliated CVEs found.
