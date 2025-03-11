@@ -12,6 +12,8 @@ import text_to_docx
 num_responses = 1
 
 cve_context = QueryDB.get_cve_context()
+
+# file path argument here 
 user_update_data = UserUpdateData.get_user_update_data() 
 
 query = f"""
@@ -32,7 +34,6 @@ Write EXACT format, nothing else, exactly like this:
     Current version: *current version of installed package
     Update version: *version of pending update
     Affiliated CVES: *list the CVES 
-
 
 """
 
