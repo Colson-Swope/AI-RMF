@@ -11,11 +11,16 @@ OS_VERSION=$(uname -v)
 COMPUTER_NAME=$(hostname)
 IP_ADDR=$(hostname -I | awk '{print $1}')
 USER_NAME=$(whoami)
+MODEL_OUTPUT="output_${COMPUTER_NAME}"
 
 # path to where information is stored 
 mkdir ${COMPUTER_NAME}
 touch ${COMPUTER_NAME}/debian_sys_config.txt
 touch ${COMPUTER_NAME}/debian_patch_report_ai.txt
+
+mkdir ${MODEL_OUTPUT}
+touch ${MODEL_OUTPUT}/output.txt
+touch ${MODEL_OUTPUT}/pdf_output.pdf
 
 SYSTEM_CONFIG_FILE="/home/${USER_NAME}/${COMPUTER_NAME}/debian_sys_config.txt"
 SYSTEM_PATCH_REPORT_AI_FILE="/home/${USER_NAME}/${COMPUTER_NAME}/debian_patch_report_ai.txt"
@@ -38,5 +43,4 @@ INFO_FOLDER="/home/${USER_NAME}/${COMPUTER_NAME}"
 
 scp -P 922 -r $INFO_FOLDER swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/machine_transfer/
 
-
-
+scp -P 922 -r $MODEL_OUTPUT swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/model_output/
