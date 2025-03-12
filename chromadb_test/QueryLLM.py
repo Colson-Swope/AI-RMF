@@ -2,6 +2,7 @@ import json
 import ollama
 import QueryDB
 import UserUpdateData
+import UserMachineInfo
 # refresh DB 
 import CreateDB
 import os
@@ -15,6 +16,7 @@ cve_context = QueryDB.get_cve_context()
 
 # file path argument here 
 user_update_data = UserUpdateData.get_user_update_data() 
+user_macine_data = UserMachineInfo.get_user_machine_info()
 
 query = f"""
 Considering the following CVEs:
@@ -29,12 +31,26 @@ DO NOT MENTION ANY PACKAGE THAT DOES NOT HAVE AN AFFILIATED CVE
 
 Write EXACT format, nothing else, exactly like this: 
 
+    At the header of the document, add this information: 
+    {user_macine_data}
+
+    
+    As another heading, write: CVE List for Unpatched Programs: 
+    ---
     Numbered list) 
     Name of package: *name of package with pending update  
     Current version: *current version of installed package
     Update version: *version of pending update
     Affiliated CVES: *list the CVES 
+    ----
+    
+    After each CVE is iterated through write the following at the bottom of the report, only once, like a conclusion: 
 
+    ---
+    Patch Deployment: *give advice on patch deployment* 
+    
+    Operational Problems: *give advice for how to prepare for operational issues as a result of patching*
+    ---
 """
 
 # generate num_responses responses
@@ -68,4 +84,3 @@ docx_output_file = os.path.join(file_folder, 'docx_output.docx')
 
 text_to_pdf.create_pdf(input_file, pdf_output_file)
 text_to_docx.create_docx(input_file, docx_output_file)
-

@@ -41,8 +41,9 @@ function updateDownloadLink() {
     let system = document.querySelector('input[name="system"]:checked').value;
     let format = document.querySelector('input[name="format"]:checked').value;
     let extension = format === "word" ? "docx" : "pdf";
-    let filename = `${system}_report.${extension}`;
-    let filepath = `./reports/${filename}`;
+    //let filename = `${system}_report.${extension}`;
+    let filename = `${extension}_output.${extension}`;
+    let filepath = `/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/model_output/output_RMF-Client01/${filename}`;
     
     let link = document.getElementById("downloadLink");
     link.href = filepath;
