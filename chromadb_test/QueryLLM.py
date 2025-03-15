@@ -1,23 +1,37 @@
+# https://www.geeksforgeeks.org/create-a-file-path-with-variables-in-python/
+
 import json
 import ollama
 import QueryDB
 import UserUpdateData
 import UserMachineInfo
-# refresh DB 
 import CreateDB
 import os
 import text_to_pdf
 import text_to_docx
+import sys 
 
 # number of times to generate a response
 num_responses = 1
 
-cve_context = QueryDB.get_cve_context()
+# accept file arguments from manager.sh bash script 
+target_system_name_input = sys.argv[1]
+target_system_name_output = "output_" + target_system_name_input
 
-# file path argument here 
-user_update_data = UserUpdateData.get_user_update_data() 
-user_macine_data = UserMachineInfo.get_user_machine_info()
+# retrieve CVE context 
+cve_context = QueryDB.get_cve_context(target_system_name_input)
 
+# process machine transfer data for target client system 
+user_update_data = UserUpdateData.get_user_update_data(target_system_name_input) 
+user_macine_data = UserMachineInfo.get_user_machine_info(target_system_name_input)
+
+# process AI model output and put in model_output folder for target client system 
+file_folder_base = './model_output/'
+file_folder_computer_name = target_system_name_output
+passed_variable = file_folder_base + file_folder_computer_name
+input_file = os.path.join(passed_variable, 'output.txt') 
+
+# query model 
 query = f"""
 Considering the following CVEs:
 {cve_context}
@@ -70,17 +84,13 @@ model_response = response["message"]["content"]
 
 print(model_response)
 
-# change to dynamic path when GUI is finished
-file_folder = './model_output/output_RMF-Client01'
-# replace with dynamic file path when GUI is done 
-input_file = os.path.join(file_folder, 'output.txt') 
-
+# write response to pdf and docx files (user will choose which one to download at a later time)
 with open(input_file, 'w') as file:  
     file.write(model_response)
 
-# replace with dynamic file path when GUI is finished 
-pdf_output_file = os.path.join(file_folder, 'pdf_output.pdf')
-docx_output_file = os.path.join(file_folder, 'docx_output.docx')
+# create pdf and docx files 
+pdf_output_file = os.path.join(passed_variable, 'pdf_output.pdf')
+docx_output_file = os.path.join(passed_variable, 'docx_output.docx')
 
 text_to_pdf.create_pdf(input_file, pdf_output_file)
 text_to_docx.create_docx(input_file, docx_output_file)

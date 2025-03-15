@@ -1,6 +1,0 @@
-Date: 03-11-2025
-Time: 08:57:55
-OS Name: RMF-Client01
-OS Version: #1 SMP PREEMPT_DYNAMIC Debian 6.1.128-1 (2025-02-07)
-Computer Name: RMF-Client01
-IP Address: 10.0.0.20
