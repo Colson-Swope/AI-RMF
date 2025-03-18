@@ -2,9 +2,6 @@
 # Name: Project AI RMF Tool
 # Date: 1/14/2025
 # Description: Collects patch information from Debian based systems and sends to central server
-# References: 
-# https://www.tecmint.com/commands-to-collect-system-and-hardware-information-in-linux/
-
 
 # get system info 
 DATE=$(date +"%m-%d-%Y")
@@ -23,7 +20,7 @@ touch ${COMPUTER_NAME}/patch_report_ai.txt
 
 mkdir ${MODEL_OUTPUT}
 touch ${MODEL_OUTPUT}/output.txt
-touch ${MODEL_OUTPUT}/pdf_output.pdf
+#touch ${MODEL_OUTPUT}/pdf_output.pdf
 
 SYSTEM_CONFIG_FILE="/home/${USER_NAME}/${COMPUTER_NAME}/sys_config.txt"
 SYSTEM_PATCH_REPORT_AI_FILE="/home/${USER_NAME}/${COMPUTER_NAME}/patch_report_ai.txt"
@@ -44,11 +41,11 @@ echo -e "Pending Updates:\n$UPDATES\n" > $SYSTEM_PATCH_REPORT_AI_FILE
 # copy info folder to target server
 INFO_FOLDER="/home/${USER_NAME}/${COMPUTER_NAME}"
 
-# scp -P 922 -r $INFO_FOLDER swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/machine_transfer/
+scp -P 922 -r $INFO_FOLDER swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/machine_transfer/
 
-scp -r $INFO_FOLDER student@172.24.24.7:/home/student/rmftool/AI-RMF/chromadb_test/machine_transfer/
+#scp -r $INFO_FOLDER student@172.24.24.7:/home/student/rmftool/AI-RMF/chromadb_test/machine_transfer/
 
-# scp -P 922 -r $MODEL_OUTPUT swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/model_output/
+scp -P 922 -r $MODEL_OUTPUT swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/model_output/
 
-scp -r $INFO_FOLDER student@172.24.24.7:/home/student/rmftool/AI-RMF/chromadb_test/machine_transfer/
+# scp -r $INFO_FOLDER student@172.24.24.7:/home/student/rmftool/AI-RMF/chromadb_test/machine_transfer/
 
