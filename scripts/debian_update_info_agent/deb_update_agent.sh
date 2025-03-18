@@ -2,6 +2,8 @@
 # Name: Project AI RMF Tool
 # Date: 1/14/2025
 # Description: Collects patch information from Debian based systems and sends to central server
+# References:
+# https://www.tecmint.com/commands-to-collect-system-and-hardware-information-in-linux/
 
 # get system info 
 DATE=$(date +"%m-%d-%Y")
