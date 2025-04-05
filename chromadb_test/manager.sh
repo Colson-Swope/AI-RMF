@@ -22,6 +22,7 @@ for dir in "$TRANSFER_DIR"/*/; do
 
         # error checking for Python script 
         if [ $? -eq 0 ]; then
+            # uncommment this line in production
             rm -rf "$dir"
             echo "removed $dir" 
         else

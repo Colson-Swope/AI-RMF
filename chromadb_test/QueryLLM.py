@@ -1,4 +1,5 @@
 # https://www.geeksforgeeks.org/create-a-file-path-with-variables-in-python/
+# https://chatgpt.com/share/67f16589-50a8-8003-b7fd-a843ba498f1c
 
 import json
 import ollama
@@ -23,7 +24,7 @@ cve_context = QueryDB.get_cve_context(target_system_name_input)
 
 # process machine transfer data for target client system 
 user_update_data = UserUpdateData.get_user_update_data(target_system_name_input) 
-user_macine_data = UserMachineInfo.get_user_machine_info(target_system_name_input)
+user_machine_data = UserMachineInfo.get_user_machine_info(target_system_name_input)
 
 # process AI model output and put in model_output folder for target client system 
 file_folder_base = './model_output/'
@@ -33,39 +34,39 @@ input_file = os.path.join(passed_variable, 'output.txt')
 
 # query model 
 query = f"""
-Considering the following CVEs:
-{cve_context}
+CVE INFO do not include in report = {cve_context} this is for your knowledge only. leave out of the report.  
 
-User's system has upgradeable packages:
-{user_update_data}
+Only say something when I tell you to. 
+Do not mention specific CVE's. Only mention if CVE's exist or not. 
 
-For each upgradeable package in the user's system, ONLY find CVEs related to package version. 
+Here is some computer information: {user_machine_data}
+Here is some update information: {user_update_data}
 
-DO NOT MENTION ANY PACKAGE THAT DOES NOT HAVE AN AFFILIATED CVE
+Instructions for the prompt below: 
+    WRITE = write out word for word 
+    "content in quotes' = should be your own writing based on the given info 
 
-Write EXACT format, nothing else, exactly like this: 
+Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. 
 
-    At the header of the document, add this information: 
-    {user_macine_data}
 
-    
-    As another heading, write: CVE List for Unpatched Programs: 
-    ---
-    Numbered list) 
-    Name of package: *name of package with pending update  
-    Current version: *current version of installed package
-    Update version: *version of pending update
-    Affiliated CVES: *list the CVES 
-    ----
-    
-    After each CVE is iterated through write the following at the bottom of the report, only once, like a conclusion: 
+WRITE = *** System Overview ***
+WRITE = {user_machine_data}
+WRITE = *** Patch Status Summary ***
+WRITE = "List out pending patches, and their relavance to security based on CVE information"
+WRITE = *** Compliance with RMF Controls *** 
+WRITE = "advice for flaw remediation in place" 
+WRITE = "advice for identification, reporting / corrective action"
+WRITE = "advice for configuration management"
+WRITE = "advice for vulnerability checks" 
+WRITE = *** Recommended next steps ***
+WRITE = "provide Review and Assess Updates"
+WRITE = "provide Scheduling patch deployments"
+WRITE = "provide guidance for Update documentation" 
+WRITE = *** Risk Assessment ***
+WRITE = "Explain the potential risk, the impact level, and mitigation plan based on current patch and CVE information" 
 
-    ---
-    Patch Deployment: *give advice on patch deployment* 
-    
-    Operational Problems: *give advice for how to prepare for operational issues as a result of patching*
-    ---
-"""
+BE DESCRIPTIVE! do not get technical. keep it simple for general management.
+"""  
 
 # generate num_responses responses
 for i in range(num_responses):

@@ -8,9 +8,9 @@ def create_pdf(input_file, output_file):
     # pdf.set_auto_page_break(True, margin=margin_size)
     pdf.add_page()
 
-    title = "RMF Report for Operating System Patch Management"
+    title = "Operating System Patch Management RMF Compliance"
 
-    pdf.set_font('Courier', 'B', 20)
+    pdf.set_font('Courier', 'B', 18)
     pdf.cell(200, 10, txt=title, ln=1)
     pdf.set_font('Courier', 'B', 10)
   

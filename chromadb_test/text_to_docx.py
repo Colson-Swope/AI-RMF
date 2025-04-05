@@ -5,7 +5,7 @@ from datetime import datetime
 def create_docx(input_file, output_file):
     doc = Document()
     
-    title = "RMF Report for Operating System Patch Management"
+    title = "Operating System Patch Management RMF Compliance"
 
     doc.add_heading(title, 2)
 
