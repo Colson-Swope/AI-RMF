@@ -53,7 +53,7 @@ Instructions for the prompt below:
     WRITE = write out word for word 
     "content in quotes' = should be your own writing based on the given info 
 
-Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. 
+Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Provide scenario based guidance.  
 
 
 WRITE = *** System Overview ***
@@ -69,7 +69,7 @@ WRITE = *** Recommended next steps ***
 WRITE = "provide Review and Assess Updates"
 WRITE = "provide Scheduling patch deployments"
 WRITE = "provide guidance for Update documentation" 
-WRITE = *** Risk Assessment ***
+WRITE = *** Risk Assessment **
 WRITE = "Explain the potential risk, the impact level, and mitigation plan based on current patch and CVE information" 
 
 BE DESCRIPTIVE! do not get technical. keep it simple for general management.
@@ -90,7 +90,7 @@ Instructions for the prompt below:
     WRITE = write out word for word 
     "content in quotes' = should be your own writing based on the given info 
 
-Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. 
+Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Provide scenario based guidance.
 
 WRITE = *** System Overview ***
 WRITE = {user_machine_data}
