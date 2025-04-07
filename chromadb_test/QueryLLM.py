@@ -48,12 +48,14 @@ Only say something when I tell you to.
 Do not mention specific CVE's. Only mention if CVE's exist or not.
 
 Here is information for every computer in the network: {user_high_level_results}
+If there are no pending updates GIVEN TO YOU, THEN THERE ARE NO VULNERABILITIES. 
+
 
 Instructions for the prompt below: 
     WRITE = write out word for word 
     "content in quotes' = should be your own writing based on the given info 
 
-Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Provide scenario based guidance.  
+Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Five steps of RMF. Provide scenario based guidance.  
 
 
 WRITE = *** System Overview ***
@@ -85,12 +87,13 @@ Do not mention specific CVE's. Only mention if CVE's exist or not.
 
 Here is some computer information: {user_machine_data}
 Here is some update information: {user_update_data}
+If there aren't any pending updates GIVEN TO YOU, THEN THERE ARE NO VULNEARBILITIES.
 
 Instructions for the prompt below: 
     WRITE = write out word for word 
     "content in quotes' = should be your own writing based on the given info 
 
-Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Provide scenario based guidance.
+Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Five steps of RMF. Provide scenario based guidance.
 
 WRITE = *** System Overview ***
 WRITE = {user_machine_data}
