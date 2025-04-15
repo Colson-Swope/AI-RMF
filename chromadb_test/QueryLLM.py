@@ -44,12 +44,11 @@ high_level_file = './model_output/output_high_level_report/output.txt'
 query_highlevel = f"""  
   
 CVE INFO do not include in report = {cve_context} this is for your knowledge only. leave out of the report.  
+
 Only say something when I tell you to. 
-Do not mention specific CVE's. Only mention if CVE's exist or not.
+Do not mention specific CVE's.
 
-Here is information for every computer in the network: {user_high_level_results}
-If there are no pending updates GIVEN TO YOU, THEN THERE ARE NO VULNERABILITIES. 
-
+Here is information for every computer in the network: {user_high_level_results} this is for your knowledge only.
 
 Instructions for the prompt below: 
     WRITE = write out word for word 
@@ -57,24 +56,23 @@ Instructions for the prompt below:
 
 Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Five steps of RMF. Provide scenario based guidance.  
 
-
 WRITE = *** System Overview ***
-WRITE = "Provide some general information of the systems within the network"
+WRITE = "Give a simple summary of the update structure within the network."
 WRITE = *** Patch Status Summary ***
-WRITE = "List out pending patches, and their relavance to security based on CVE information"
+WRITE = "Give a summary for the patch status of the systems, if there are any pending updates."
 WRITE = *** Compliance with RMF Controls *** 
-WRITE = "advice for flaw remediation in place" 
+WRITE = "advice for flaw remediation in place"
 WRITE = "advice for identification, reporting / corrective action"
 WRITE = "advice for configuration management"
-WRITE = "advice for vulnerability checks" 
+WRITE = "advice for vulnerability checks"
 WRITE = *** Recommended next steps ***
 WRITE = "provide Review and Assess Updates"
 WRITE = "provide Scheduling patch deployments"
 WRITE = "provide guidance for Update documentation" 
 WRITE = *** Risk Assessment **
-WRITE = "Explain the potential risk, the impact level, and mitigation plan based on current patch and CVE information" 
+WRITE = "Explain the potential risk, the impact level, and mitigation plan based on current patch and CVE information.
 
-BE DESCRIPTIVE! do not get technical. keep it simple for general management.
+BE DESCRIPTIVE! do not get technical. keep it simple for general management. only state the updates you are explicitly given. 
 
 """  
 
@@ -87,31 +85,30 @@ Do not mention specific CVE's. Only mention if CVE's exist or not.
 
 Here is some computer information: {user_machine_data}
 Here is some update information: {user_update_data}
-If there aren't any pending updates GIVEN TO YOU, THEN THERE ARE NO VULNEARBILITIES.
 
+Otherwise:
 Instructions for the prompt below: 
     WRITE = write out word for word 
     "content in quotes' = should be your own writing based on the given info 
 
 Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Five steps of RMF. Provide scenario based guidance.
-
 WRITE = *** System Overview ***
 WRITE = {user_machine_data}
 WRITE = *** Patch Status Summary ***
-WRITE = "List out pending patches, and their relavance to security based on CVE information"
+WRITE = "List out pending patches, only get your data from {user_update_data}, and their relavance to security based on CVE information.
 WRITE = *** Compliance with RMF Controls *** 
-WRITE = "advice for flaw remediation in place" 
+WRITE = "advice for flaw remediation in place, only if needed" 
 WRITE = "advice for identification, reporting / corrective action"
 WRITE = "advice for configuration management"
 WRITE = "advice for vulnerability checks" 
 WRITE = *** Recommended next steps ***
 WRITE = "provide Review and Assess Updates"
-WRITE = "provide Scheduling patch deployments"
+WRITE = "provide Scheduling patch deployments, if needed"
 WRITE = "provide guidance for Update documentation" 
 WRITE = *** Risk Assessment ***
-WRITE = "Explain the potential risk, the impact level, and mitigation plan based on current patch and CVE information" 
+WRITE = "Explain the potential risk, the impact level, and mitigation plan based on current patch and CVE information, only if there are pending updates in the info I gave you" 
 
-BE DESCRIPTIVE! do not get technical. keep it simple for general management.
+BE DESCRIPTIVE! do not get technical. keep it simple for general management. only state the updates you are explicitly given.
 """  
 
 # generate num_responses responses
