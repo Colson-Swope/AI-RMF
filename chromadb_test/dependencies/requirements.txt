@@ -11,3 +11,4 @@ ollama
 chromadb
 fpdf
 python-docx
+reportlab
