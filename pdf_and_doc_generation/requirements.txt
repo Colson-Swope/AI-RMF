@@ -1,2 +1,1 @@
-fpdf
-python-docx
+reportlab
