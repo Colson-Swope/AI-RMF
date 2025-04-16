@@ -9,8 +9,8 @@ import UserMachineInfo
 import UserHighLevelResults
 import CreateDB
 import os
-import text_to_pdf
-import text_to_docx
+import TextToPdf
+import TextToDocx
 import sys 
 
 # number of times to generate a response
@@ -150,8 +150,8 @@ with open(input_file, 'w') as file:
 pdf_output_file = os.path.join(passed_variable, 'pdf_output.pdf')
 docx_output_file = os.path.join(passed_variable, 'docx_output.docx')
 
-text_to_pdf.create_pdf(input_file, pdf_output_file)
-text_to_docx.create_docx(input_file, docx_output_file)
+TextToPdf.create_pdf(input_file, pdf_output_file)
+TextToDocx.create_docx(input_file, docx_output_file)
 
 # write high level report to pdf and docx 
 with open(high_level_file, 'w') as file:
@@ -161,5 +161,5 @@ with open(high_level_file, 'w') as file:
 high_level_pdf_output_file = "./model_output/output_high_level_report/pdf_output.pdf"
 high_level_docx_output_file = "./model_output/output_high_level_report/docx_output.docx"
 
-text_to_pdf.create_pdf(high_level_file, high_level_pdf_output_file)
-text_to_docx.create_docx(high_level_file, high_level_docx_output_file)
+TextToPdf.create_pdf(high_level_file, high_level_pdf_output_file)
+TextToDocx.create_docx(high_level_file, high_level_docx_output_file)

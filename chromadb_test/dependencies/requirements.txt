@@ -1,3 +1,5 @@
+Run the following commands on a Debian 12 system - 
+
 curl -fsSL https://ollama.com/install.sh | sh
 
 sudo apt install git
