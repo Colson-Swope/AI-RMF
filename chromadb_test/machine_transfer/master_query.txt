@@ -6,16 +6,11 @@ Computer Name: kb322-18
 IP Address: 140.160.138.147
 Pending Updates:
 Listing...
-code/stable 1.99.0-1743632463 amd64 [upgradable from: 1.98.2-1741788907]
-Date: 04-06-2025
-Time: 16:02:09
-OS Name: kb322-18
+Date: 04-26-2025
+Time: 09:02:08
+OS Name: RMF-VM01
 OS Version: #1 SMP PREEMPT_DYNAMIC Debian 6.1.129-1 (2025-03-06)
-Computer Name: kb322-18
-IP Address: 140.160.138.147
+Computer Name: RMF-VM01
+IP Address: 10.0.0.42
 Pending Updates:
 Listing...
-code/stable 1.99.0-1743632463 amd64 [upgradable from: 1.98.2-1741788907]
-ure/stable-security 4:7.4.7-1+deb12u6 amd64 [upgradable from: 4:7.4.7-1+deb12u5]
-git-man/stable-security 1:2.39.5-0+deb12u2 all [upgradable from: 1:2.39.5-0+deb12u1]
-git/stable-security 1:2.39.5-0+deb12u2 amd64 [upgradable from: 1:2.39.5-0+deb12u1]

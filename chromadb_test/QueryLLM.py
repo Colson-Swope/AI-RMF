@@ -42,9 +42,9 @@ high_level_file = './model_output/output_high_level_report/output.txt'
 
 # query model for a high level list of results
 query_highlevel = f"""  
-  
+You will be handed a list of computer updates. If there are no debian / windows update information found in the file, say that there are no updates. Do not perform any further risk analysis, do nothing else. Do exactly as told.
 CVE INFO do not include in report = {cve_context} this is for your knowledge only. leave out of the report.  
-
+If no updates then no vulnerabilities.
 Only say something when I tell you to. 
 Do not mention specific CVE's.
 
@@ -57,20 +57,20 @@ Instructions for the prompt below:
 Now construct a report that management can use to assist with the RMF process for OS patch management. Report should be used to document compliance. Five steps of RMF. Provide scenario based guidance.  
 
 WRITE = *** System Overview ***
-WRITE = "Give a simple summary of the update structure within the network."
+WRITE = "Give a simple summary of the updates."
 WRITE = *** Patch Status Summary ***
 WRITE = "Give a summary for the patch status of the systems, if there are any pending updates."
 WRITE = *** Compliance with RMF Controls *** 
-WRITE = "advice for flaw remediation in place"
+WRITE = "advice for flaw remediation in place, only if needed"
 WRITE = "advice for identification, reporting / corrective action"
 WRITE = "advice for configuration management"
 WRITE = "advice for vulnerability checks"
 WRITE = *** Recommended next steps ***
 WRITE = "provide Review and Assess Updates"
-WRITE = "provide Scheduling patch deployments"
+WRITE = "provide Scheduling patch deployments, if needed"
 WRITE = "provide guidance for Update documentation" 
 WRITE = *** Risk Assessment **
-WRITE = "Explain the potential risk, the impact level, and mitigation plan based on current patch and CVE information.
+WRITE = "Explain the potential risk, the impact level, and mitigation plan based on current patch and CVE information, only if there are pending updates in the info I gave you" 
 
 BE DESCRIPTIVE! do not get technical. keep it simple for general management. only state the updates you are explicitly given. 
 
@@ -78,10 +78,12 @@ BE DESCRIPTIVE! do not get technical. keep it simple for general management. onl
 
 # query model for each individual machine  
 query_indiv = f"""
+You will be handed a list of computer updates. If there are no debian / windows update information found in the file, say that there are no updates. Do not perform any further risk analysis, do nothing else. Do exactly as told. 
 CVE INFO do not include in report = {cve_context} this is for your knowledge only. leave out of the report.  
+If no updates then no vulnerabilities.
 
 Only say something when I tell you to. 
-Do not mention specific CVE's. Only mention if CVE's exist or not. 
+Do not mention specific CVE's.
 
 Here is some computer information: {user_machine_data}
 Here is some update information: {user_update_data}
@@ -95,7 +97,7 @@ Now construct a report that management can use to assist with the RMF process fo
 WRITE = *** System Overview ***
 WRITE = {user_machine_data}
 WRITE = *** Patch Status Summary ***
-WRITE = "List out pending patches, only get your data from {user_update_data}, and their relavance to security based on CVE information.
+WRITE = "List out pending patches, only get your data from {user_update_data}, and their relevance to security based on CVE information.
 WRITE = *** Compliance with RMF Controls *** 
 WRITE = "advice for flaw remediation in place, only if needed" 
 WRITE = "advice for identification, reporting / corrective action"
