@@ -23,7 +23,7 @@ $COMPUTER_NAME = $env:COMPUTERNAME
 $systemInfo = @"
 Date: $DATE
 Time: $TIME
-OS Name: $OS_NAME
+Operating System: $OS_NAME
 OS Version: $OS_VERSION
 Computer Name: $COMPUTER_NAME
 IP Address: $IP_ADDR
