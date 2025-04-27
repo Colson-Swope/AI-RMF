@@ -15,5 +15,7 @@ echo "Please authenticate to server:"
 
 ssh-copy-id -p 922 swopec2@kb322-18.cs.wwu.edu 
 
+mkdir rmfclient
+
 echo "Server authentication successful."
 echo "Installation complete." 

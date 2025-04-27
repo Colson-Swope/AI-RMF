@@ -1,6 +1,6 @@
-Date: 04-26-2025
-Time: 09:02:08
-OS Name: RMF-VM01
+Date: 04-27-2025
+Time: 15:50:00
+Operating System: Debian GNU/Linux 12 (bookworm)
 OS Version: #1 SMP PREEMPT_DYNAMIC Debian 6.1.129-1 (2025-03-06)
 Computer Name: RMF-VM01
 IP Address: 10.0.0.42

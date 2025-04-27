@@ -1,2 +1,14 @@
 Pending Updates:
 Listing...
+gir1.2-javascriptcoregtk-4.0/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+gir1.2-webkit2-4.0/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+libjavascriptcoregtk-4.0-18/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+libjavascriptcoregtk-4.1-0/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+libperl5.36/stable-security 5.36.0-7+deb12u2 amd64 [upgradable from: 5.36.0-7+deb12u1]
+libwebkit2gtk-4.0-37/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+libwebkit2gtk-4.1-0/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+linux-image-amd64/stable-security 6.1.135-1 amd64 [upgradable from: 6.1.129-1]
+perl-base/stable-security 5.36.0-7+deb12u2 amd64 [upgradable from: 5.36.0-7+deb12u1]
+perl-modules-5.36/stable-security 5.36.0-7+deb12u2 all [upgradable from: 5.36.0-7+deb12u1]
+perl/stable-security 5.36.0-7+deb12u2 amd64 [upgradable from: 5.36.0-7+deb12u1]
+

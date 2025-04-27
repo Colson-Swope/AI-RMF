@@ -1,21 +1,32 @@
 *** System Overview ***
-Date: 04-26-2025
-Time: 09:02:08
-OS Name: RMF-VM01
+Date: 04-27-2025
+Time: 15:50:00
+Operating System: Debian GNU/Linux 12 (bookworm)
 OS Version: #1 SMP PREEMPT_DYNAMIC Debian 6.1.129-1 (2025-03-06)
 Computer Name: RMF-VM01
 IP Address: 10.0.0.42
 
 *** Patch Status Summary ***
-There are no pending updates.
+List of pending patches:
+gir1.2-javascriptcoregtk-4.0/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+gir1.2-webkit2-4.0/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+libjavascriptcoregtk-4.0-18/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+libjavascriptcoregtk-4.1-0/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+libperl5.36/stable-security 5.36.0-7+deb12u2 amd64 [upgradable from: 5.36.0-7+deb12u1]
+libwebkit2gtk-4.0-37/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+libwebkit2gtk-4.1-0/stable-security 2.48.1-2~deb12u1 amd64 [upgradable from: 2.48.0-1~deb12u1]
+linux-image-amd64/stable-security 6.1.135-1 amd64 [upgradable from: 6.1.129-1]
+perl-base/stable-security 5.36.0-7+deb12u2 amd64 [upgradable from: 5.36.0-7+deb12u1]
+perl-modules-5.36/stable-security 5.36.0-7+deb12u2 all [upgradable from: 5.36.0-7+deb12u1]
+perl/stable-security 5.36.0-7+deb12u2 amd64 [upgradable from: 5.36.0-7+deb12u1]
 
 *** Compliance with RMF Controls ***
-Since there are no pending patches, we do not have any specific advice for flaw remediation in place. However, it is recommended that you continue to identify and report security vulnerabilities, as well as maintain proper configuration management practices to prevent future vulnerabilities. It is also essential to conduct regular vulnerability checks to ensure the system remains secure.
+Please refer to the patch status for remediation in place, identification, reporting/corrective action, configuration management, and vulnerability checks.
 
 *** Recommended next steps ***
-Please review and assess the updates available.
-Schedule patch deployments if needed.
-Update documentation accordingly.
+Review and assess updates.
+Scheduling patch deployments if needed.
+Provide guidance for update documentation.
 
 *** Risk Assessment ***
-Currently, there are no pending updates indicating potential security risks. However, it is still essential to maintain a robust vulnerability management program in place to identify and address any potential issues proactively. Regular monitoring and assessments will help ensure the system remains secure.
+There are no pending updates provided.
