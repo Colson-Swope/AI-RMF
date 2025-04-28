@@ -10,7 +10,7 @@
 
 # define source and destination dir. to move CVE info to 
 SOURCE_DIR="/home/swopec2/Documents/GitHub/cvelistV5"
-DEST_DIR="/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/cve_information/CVEdata/cvelistnosub/cves/"
+DEST_DIR="/home/swopec2/Documents/GitHub/AI-RMF/chromadb/cve_information/CVEdata/cvelistnosub/cves/"
 
 # use rsync to move all changed files to destination directory used by App.py
 find $SOURCE_DIR -name \*.json | rsync -av --files-from - --no-relative / $DEST_DIR

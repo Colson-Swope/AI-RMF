@@ -3,7 +3,7 @@ import json
 import chromadb
 
 # The amount of CVEs to put in the DB, -1 for no limit
-limit = 10000
+limit = 5460
 
 cve_dir = "./cve_information/CVEdata/cvelistnosub/cves/"
 

@@ -76,5 +76,5 @@ if (Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Aut
 $patchInfo | Set-Content -Path $PATCH_REPORT
 $systemInfo | Set-Content -Path $SYSTEM_INFO
 
-scp -r $INFO_FOLDER swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/machine_transfer/
-scp -r $MODEL_OUTPUT swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/model_output/
+scp -r $INFO_FOLDER swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb/machine_transfer/
+scp -r $MODEL_OUTPUT swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb/model_output/
