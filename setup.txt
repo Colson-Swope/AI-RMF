@@ -1,0 +1,15 @@
+How to get back-end ready for use: 
+
+-- Load the AI Model with the necessary CVE data that is required for it to run --
+1) run: chromadb_test/cve_information/bashsort.sh
+
+-- Run the endpoint agent --
+2) Navigate to the "scripts" directory 
+
+3) Download either the Debian 12 or Windows 11 endpoint agent script (make sure to get both the setup and agent scripts)
+4) On the endpoint machine, run the setup script, the run the agent script 
+
+-- Run the model --
+5) On the server, navigate to chromadb
+6) Run "manager.sh" 
+
