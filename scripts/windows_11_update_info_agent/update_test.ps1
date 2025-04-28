@@ -1,16 +1,15 @@
 # Name: Project AI RMF Tool
 # Description: Collects patch info from Windows 11 systems and sends to a central server
+# https://superuser.com/questions/1034471/how-do-i-extract-the-ipv4-ip-address-from-the-output-of-ipconfig
 
 # Instructions:
-# Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-# Install-Module PSWindowsUpdate -Force -Scope CurrentUser
-# Import-Module PSWindowsUpdate
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+Install-Module PSWindowsUpdate -Force -Scope CurrentUser
+Import-Module PSWindowsUpdate
 # Run: .\collect_patch_info.ps1
 
 # Import PSWINDOWSUPDATE
 Import-Module PSWindowsUpdate
-# Define file path
-$REPORT_FILE = "windows_patch_report.txt"
 
 # Get system info
 $DATE = Get-Date -Format "MM-dd-yyyy"
@@ -19,6 +18,17 @@ $OS_NAME = (Get-CimInstance Win32_OperatingSystem).Caption
 $OS_VERSION = (Get-CimInstance Win32_OperatingSystem).Version
 $COMPUTER_NAME = $env:COMPUTERNAME
 # $IP_ADDR = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -notmatch "Loopback"} | Select-Object -ExpandProperty IPAddress | Select-Object -First 1)
+$IP_ADDR = (ipconfig | findstr /i "ipv4")
+
+# Define file path
+New-Item -Name "rmf_client/$COMPUTER_NAME" -ItemType Directory
+New-Item -Name "rmf_client/output_$COMPUTER_NAME" -ItemType Directory
+New-Item -Name "rmf_client/output_$COMPUTER_NAME/output.txt" -ItemType File 
+
+$PATCH_REPORT = "rmf_client/$COMPUTER_NAME/patch_report_ai.txt"
+$SYSTEM_INFO = "rmf_client/$COMPUTER_NAME/sys_config.txt"
+$MODEL_OUTPUT = "rmf_client/output_$COMPUTER_NAME/"
+$INFO_FOLDER = "rmf_client/$COMPUTER_NAME"
 
 $systemInfo = @"
 Date: $DATE
@@ -56,12 +66,15 @@ if (Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Aut
 }
 
 # Collect installed patches
-$installedPatches = Get-HotFix | Select-Object HotFixID, Description, InstalledOn
-$patchInfo += "`nInstalled Patches:`n"
-$installedPatches | ForEach-Object {
-    $patchInfo += "ID: $($_.HotFixID)`nDescription: $($_.Description)`nInstalled On: $($_.InstalledOn)`n`n"
-}
+# $installedPatches = Get-HotFix | Select-Object HotFixID, Description, InstalledOn
+# $patchInfo += "`nInstalled Patches:`n"
+# $installedPatches | ForEach-Object {
+    # $patchInfo += "ID: $($_.HotFixID)`nDescription: $($_.Description)`nInstalled On: $($_.InstalledOn)`n`n"
+# }
 
-# Combine system info and patch info into one file
-$allInfo = $systemInfo + $patchInfo
-$allInfo | Set-Content -Path $REPORT_FILE
+# Export to file 
+$patchInfo | Set-Content -Path $PATCH_REPORT
+$systemInfo | Set-Content -Path $SYSTEM_INFO
+
+scp -r $INFO_FOLDER swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/machine_transfer/
+scp -r $MODEL_OUTPUT swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb_test/model_output/
