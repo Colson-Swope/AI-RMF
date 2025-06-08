@@ -1,5 +1,4 @@
 from reportlab.lib.pagesizes import LETTER
-from reportlab.pdfgen import canvas
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, ListFlowable, ListItem
 from reportlab.lib.units import inch
@@ -16,7 +15,6 @@ def create_pdf(input_file, output_file):
 
     section_style = styles['Heading2']
     body_style = styles['BodyText']
-    bullet_style = styles['Bullet']
     timestamp_style = ParagraphStyle(
         'Timestamp',
         parent=styles['Normal'],
@@ -35,38 +33,26 @@ def create_pdf(input_file, output_file):
     with open(input_file, 'r') as f:
         lines = f.readlines()
 
-    current_section = None
-    buffer = []
-
-    def add_section(title, content):
-        if title:
-            elements.append(Paragraph(title, section_style))
-        bullet_items = []
-        for line in content:
-            line = line.strip()
-            if line.startswith('- '):
-                bullet_items.append(ListItem(Paragraph(line[2:], body_style)))
-            else:
-                if bullet_items:
-                    elements.append(ListFlowable(bullet_items, bulletType='bullet'))
-                    bullet_items = []
-                elements.append(Paragraph(line, body_style))
-        if bullet_items:
-            elements.append(ListFlowable(bullet_items, bulletType='bullet'))
-        elements.append(Spacer(1, 0.2 * inch))
-
+    list_items = []
+    # Add lines to doc
     for line in lines:
         line = line.strip()
-        if line.startswith('***') and line.endswith('***'):
-            if current_section and buffer:
-                add_section(current_section, buffer)
-                buffer = []
-            current_section = line.strip('* ').strip()
+        if line.startswith('- ') or line.startswith('+ ') or line.startswith('* '):
+            list_items.append(ListItem(Paragraph(line[2:], body_style)))
         else:
-            buffer.append(line)
+            if len(list_items) != 0:
+                elements.append(ListFlowable(list_items, bulletType='bullet'))
+                list_items = []
+            if line.startswith('***') and line.endswith('***'):
+                elements.append(Paragraph(line[3:-3], section_style))
+                elements.append(Spacer(1, 0.2 * inch))
+            elif line.startswith('**') and line.endswith('**'):
+                elements.append(Paragraph(line[2:-2], section_style))
+                elements.append(Spacer(1, 0.2 * inch))
+            else:
+                elements.append(Paragraph(line, body_style))
 
-    if current_section and buffer:
-        add_section(current_section, buffer)
 
     doc.build(elements)
+
 

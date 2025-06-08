@@ -32,13 +32,13 @@ user_update_data = UserUpdateData.get_user_update_data(target_system_name_input)
 user_machine_data = UserMachineInfo.get_user_machine_info(target_system_name_input)
 
 # process AI model output and put in model_output folder for individual computer systems 
-file_folder_base = './model_output/'
+file_folder_base = '/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/model_output/'
 file_folder_computer_name = target_system_name_output
 passed_variable = file_folder_base + file_folder_computer_name
 input_file = os.path.join(passed_variable, 'output.txt') 
 
 # file path for high level report 
-high_level_file = './model_output/output_high_level_report/output.txt'
+high_level_file = '/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/model_output/output_high_level_report/output.txt'
 
 # query model for a high level list of results
 query_highlevel = f"""  
@@ -160,8 +160,8 @@ with open(high_level_file, 'w') as file:
     file.write(highlevel_model_response)
 
 # create pdf and docx files for high level overview report 
-high_level_pdf_output_file = "./model_output/output_high_level_report/pdf_output.pdf"
-high_level_docx_output_file = "./model_output/output_high_level_report/docx_output.docx"
+high_level_pdf_output_file = "/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/model_output/output_high_level_report/pdf_output.pdf"
+high_level_docx_output_file = "/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/model_output/output_high_level_report/docx_output.docx"
 
 TextToPdf.create_pdf(high_level_file, high_level_pdf_output_file)
 TextToDocx.create_docx(high_level_file, high_level_docx_output_file)

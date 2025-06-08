@@ -43,11 +43,7 @@ echo -e "Pending Updates:\n$UPDATES\n" > $SYSTEM_PATCH_REPORT_AI_FILE
 # copy info folder to target server
 INFO_FOLDER="rmfclient/${COMPUTER_NAME}"
 
-scp -P 922 -r $INFO_FOLDER swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb/machine_transfer/
+scp -r $INFO_FOLDER student@172.24.24.38:/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/machine_transfer/
 
-#scp -r $INFO_FOLDER student@172.24.24.7:/home/student/rmftool/AI-RMF/chromadb_test/machine_transfer/
-
-scp -P 922 -r $MODEL_OUTPUT swopec2@kb322-18.cs.wwu.edu:/home/swopec2/Documents/GitHub/AI-RMF/chromadb/model_output/
-
-# scp -r $INFO_FOLDER student@172.24.24.7:/home/student/rmftool/AI-RMF/chromadb_test/machine_transfer/
+scp -r $MODEL_OUTPUT student@172.24.24.38:/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/model_output/
 

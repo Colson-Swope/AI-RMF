@@ -1,0 +1,28 @@
+1:45 PM 10/18/2024
+
+Meeting questions: 
+
+- Having a single system where we can put all of our docs / work / appointments 
+- Discussing LLM's with professors (Jonathan going next week to discuss) 
+- Sally Bass update + Wiki on Cyber Range (do we want to schedule a meeting with her) 
+- Narrowing down an idea? 
+
+Ripken got some tips with the RMF: 
+
+NIST 800-53r5 Chapter 3 - all of the controls that should be continuous 
+
+Kitsap credit union bank RMF procedure?  
+What area do we want to target the RMF procedures? 
+
+"Help me plan and scope an RMF" 
+	- look into more applied scenarios  
+
+Setting up a meeting with Sally bass to see what the best way of doing this is 
+
+
+
+Game plan: 
+
+- Getting into contact with Sally to set up a meeting with the Cyber Range 
+- More research over the weekend (RMF, OS Hardware choices), work to narrow down what it is that we want 
+- Re-group Sunday night or Monday morning to follow up with client 

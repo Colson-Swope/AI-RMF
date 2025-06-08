@@ -13,7 +13,7 @@ fi
 
 echo "Please authenticate to server:"
 
-ssh-copy-id -p 922 swopec2@kb322-18.cs.wwu.edu 
+ssh-copy-id student@172.24.24.38
 
 mkdir rmfclient
 

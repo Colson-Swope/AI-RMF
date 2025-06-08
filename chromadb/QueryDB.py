@@ -5,7 +5,7 @@ import sys
 # number of cves to return
 limit = 10
 
-chroma_client = chromadb.PersistentClient(path="./cve_information/cvedatabase")
+chroma_client = chromadb.PersistentClient(path="/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/cve_information/CVEdatabase")
 collection = chroma_client.get_collection(name = "cve_collection")
 
 

@@ -5,9 +5,9 @@ import chromadb
 # The amount of CVEs to put in the DB, -1 for no limit
 limit = 5460
 
-cve_dir = "./cve_information/CVEdata/cvelistnosub/cves/"
+cve_dir = "/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/cve_information/CVEdata/cves/"
 
-client = chromadb.PersistentClient(path="./cve_information/cvedatabase/")
+client = chromadb.PersistentClient(path="/home/student/2025-ai-cybersecurity-rmf-tool/chromadb/cve_information/CVEdatabase/")
 collection = client.get_or_create_collection("cve_collection")
 
 resources = []

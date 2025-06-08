@@ -1,44 +1,45 @@
 from docx import Document
-from docx.shared import Pt
 from datetime import datetime
 
 
 def create_docx(input_file, output_file):
     doc = Document()
 
-    title = "Operating System Patch Management RMF Compliance"
-    doc.add_heading(title, level=1)
+    # Add title and timestamp
+    doc.add_heading("Operating System Patch Management RMF Compliance", level=1)
+    timestamp = datetime.now().strftime("Created %B %d, %Y at %H:%M:%S")
+    doc.add_paragraph(timestamp, style='Normal')
+    doc.add_paragraph("")  # spacer
 
-    doc.add_paragraph(f"Created {datetime.now().strftime('%B %d, %Y at %H:%M:%S')}")
-    doc.add_paragraph("")
-
+    # Parse input file
     with open(input_file, 'r') as f:
         lines = f.readlines()
 
-    current_section = None
-    buffer = []
+    bullet_buffer = []
 
-    def add_section(title, content):
-        if title:
-            doc.add_heading(title, level=2)
-        for line in content:
-            line = line.strip()
-            if line.startswith('- '):
-                doc.add_paragraph(line[2:], style='List Bullet')
-            else:
-                doc.add_paragraph(line)
+    def flush_bullets():
+        for item in bullet_buffer:
+            doc.add_paragraph(item, style='List Bullet')
+        bullet_buffer.clear()
 
+    # Build output file
     for line in lines:
         line = line.strip()
-        if line.startswith('***') and line.endswith('***'):
-            if current_section and buffer:
-                add_section(current_section, buffer)
-                buffer = []
-            current_section = line.strip('* ').strip()
+        if line.startswith(('- ', '* ', '+ ')):
+            bullet_buffer.append(line[2:])
         else:
-            buffer.append(line)
+            if bullet_buffer:
+                flush_bullets()
+            if line.startswith('***') and line.endswith('***'):
+                doc.add_heading(line[3:-3].strip(), level=2)
+            elif line.startswith('**') and line.endswith('**'):
+                doc.add_heading(line[2:-2].strip(), level=2)
+            elif line:
+                doc.add_paragraph(line, style='Normal')
 
-    if current_section and buffer:
-        add_section(current_section, buffer)
+    if bullet_buffer:
+        flush_bullets()
 
+    # Save the document
     doc.save(output_file)
+
