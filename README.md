@@ -2,7 +2,7 @@
 ## Group Members
 - Colson Swope - swopec2@wwu.edu
 - Jonathan Ly - lyj5@wwu.edu
-- Ripkin Stork - storkr@wwu.edu
+- Ripken Stork - storkr@wwu.edu
 - Slate Colebank - colebas@wwu.edu
 
 ## Resources In Use
